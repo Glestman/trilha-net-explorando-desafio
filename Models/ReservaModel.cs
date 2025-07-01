@@ -1,19 +1,19 @@
 namespace DesafioProjetoHospedagem.Models
 {
-    public class Reserva
+    public class ReservaModel
     {
-        public List<Pessoa> Hospedes { get; set; }
-        public Suite Suite { get; set; }
+        public List<PessoaModel> Hospedes { get; set; }
+        public SuiteModel Suite { get; set; }
         public int DiasReservados { get; set; }
 
-        public Reserva() { }
+        public ReservaModel() { }
 
-        public Reserva(int diasReservados)
+        public ReservaModel(int diasReservados)
         {
             DiasReservados = diasReservados;
         }
 
-        public void CadastrarHospedes(List<Pessoa> hospedes)
+        public void CadastrarHospedes(List<PessoaModel> hospedes)
         {
             // TODO: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
             // *IMPLEMENTE AQUI*
@@ -28,7 +28,7 @@ namespace DesafioProjetoHospedagem.Models
             }
         }
 
-        public void CadastrarSuite(Suite suite)
+        public void CadastrarSuite(SuiteModel suite)
         {
             Suite = suite;
         }

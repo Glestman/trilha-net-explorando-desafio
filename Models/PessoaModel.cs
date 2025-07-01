@@ -1,15 +1,15 @@
 namespace DesafioProjetoHospedagem.Models;
 
-public class Pessoa
+public class PessoaModel
 {
-    public Pessoa() { }
+    public PessoaModel() { }
 
-    public Pessoa(string nome)
+    public PessoaModel(string nome)
     {
         Nome = nome;
     }
 
-    public Pessoa(string nome, string sobrenome)
+    public PessoaModel(string nome, string sobrenome)
     {
         Nome = nome;
         Sobrenome = sobrenome;
