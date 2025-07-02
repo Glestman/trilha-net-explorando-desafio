@@ -11,12 +11,44 @@ namespace DesafioProjetoHospedagem.Services.Pessoa
 {
     public class PessoaService : IPessoaInterface
     {
-        private readonly AppContext _context;
+        private readonly AppDbContext _context;
         public PessoaService(AppDbContext context)
         {
             _context = context;
         }
 
+        Task<ResponseModel<PessoaModel>> IPessoaInterface.BuscarPessoaPorId(int IdPessoa)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ResponseModel<PessoaModel>> IPessoaInterface.BuscarPessoaPorIdReserva(int idReserva)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.CriarPessoa(PessoaCriacaoDto pessoaCriacaoDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.EditarPessoa(PessoaCriacaoDto pessoaEdicaoDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.ExcluirPessoa(int IdPessoa)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.ListarPessoa()
+        {
+            throw new NotImplementedException();
+        }
+    
+
+    
         public Task<ResponseModel<PessoaModel>> BuscarPessoaPorId(int IdPessoa)
         {
             throw new NotImplementedException();

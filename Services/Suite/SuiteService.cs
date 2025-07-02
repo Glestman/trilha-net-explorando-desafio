@@ -12,7 +12,7 @@ namespace DesafioProjetoHospedagem.Services.Suite
 {
     public class SuiteService : ISuiteInterface
     {
-        private readonly AppContext _context;
+        private readonly AppDbContext _context;
         public SuiteService(AppDbContext context)
         {
             _context = context;

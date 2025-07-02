@@ -11,7 +11,8 @@ namespace DesafioProjetoHospedagem.Services.Reserva
 {
     public class ReservaService : IReservaInterface
     {
-        private readonly AppContext _context;
+        
+        private readonly AppDbContext _context;
         public ReservaService(AppDbContext context)
         {
             _context = context;
