@@ -8,5 +8,8 @@ namespace DesafioProjetoHospedagem.Dto.Pessoa
 {
     public class PessoaCriacaoDto
     {
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string NomeCompleto => $"{Nome} {Sobrenome}".ToUpper();
     }
 }

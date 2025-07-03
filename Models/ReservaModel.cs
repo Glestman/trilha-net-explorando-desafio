@@ -2,9 +2,11 @@ namespace DesafioProjetoHospedagem.Models
 {
     public class ReservaModel
     {
+        public int Id { get; set; }
         public List<PessoaModel> Hospedes { get; set; }
         public SuiteModel Suite { get; set; }
         public int DiasReservados { get; set; }
+
 
         public ReservaModel() { }
 

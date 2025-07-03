@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DesafioProjetoHospedagem.Data;
 using DesafioProjetoHospedagem.Dto.Pessoa;
 using DesafioProjetoHospedagem.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioProjetoHospedagem.Services.Pessoa
 {
@@ -27,12 +28,34 @@ namespace DesafioProjetoHospedagem.Services.Pessoa
             throw new NotImplementedException();
         }
 
-        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.CriarPessoa(PessoaCriacaoDto pessoaCriacaoDto)
+        public async Task<ResponseModel<List<PessoaModel>>> CriarPessoa(PessoaCriacaoDto pessoaCriacaoDto)
         {
-            throw new NotImplementedException();
+            ResponseModel<List<PessoaModel>> resposta = new ResponseModel<List<PessoaModel>>();
+            try
+            {
+                var pessoa = new PessoaModel()
+                {
+                    Nome = pessoaCriacaoDto.Nome,
+                    Sobrenome = pessoaCriacaoDto.Sobrenome,
+                  
+                };
+                _context.Add(pessoa);
+                await _context.SaveChangesAsync();
+
+                resposta.Dados = await _context.Pessoas.ToListAsync();
+                resposta.Mensagem = "Criado cadastro com sucesso";
+                return resposta;
+
+            }
+            catch (Exception ex)
+            {
+                resposta.Mensagem = ex.Message;
+                resposta.Status = false;
+                return resposta;
+            }
         }
 
-        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.EditarPessoa(PessoaCriacaoDto pessoaEdicaoDto)
+        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.EditarPessoa(PessoaEdicaoDto pessoaEdicaoDto)
         {
             throw new NotImplementedException();
         }
@@ -42,9 +65,23 @@ namespace DesafioProjetoHospedagem.Services.Pessoa
             throw new NotImplementedException();
         }
 
-        Task<ResponseModel<List<PessoaModel>>> IPessoaInterface.ListarPessoa()
+       public async Task<ResponseModel<List<PessoaModel>>> ListarPessoas()
         {
-            throw new NotImplementedException();
+            ResponseModel<List<PessoaModel>> resposta = new ResponseModel<List<PessoaModel>>();
+            try
+            {
+                var pessoas = await _context.Pessoas.ToListAsync();
+                resposta.Dados = pessoas;
+                resposta.Mensagem = "Todos os autores foram coletados";
+                return resposta;
+
+            }
+            catch (Exception ex)
+            {
+                resposta.Mensagem = ex.Message;
+                resposta.Status = false;
+                return resposta;
+            }
         }
     
 
@@ -59,10 +96,6 @@ namespace DesafioProjetoHospedagem.Services.Pessoa
             throw new NotImplementedException();
         }
 
-        public Task<ResponseModel<List<PessoaModel>>> CriarPessoa(PessoaCriacaoDto pessoaCriacaoDto)
-        {
-            throw new NotImplementedException();
-        }
 
         public Task<ResponseModel<List<PessoaModel>>> EditarPessoa(PessoaCriacaoDto pessoaEdicaoDto)
         {

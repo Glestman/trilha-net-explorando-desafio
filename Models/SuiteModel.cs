@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace DesafioProjetoHospedagem.Models
 {
     public class SuiteModel
@@ -10,9 +12,10 @@ namespace DesafioProjetoHospedagem.Models
             Capacidade = capacidade;
             ValorDiaria = valorDiaria;
         }
-
+        public int Id { get; set; }
         public string TipoSuite { get; set; }
         public int Capacidade { get; set; }
+        [Precision(10, 2)]
         public decimal ValorDiaria { get; set; }
     }
 }

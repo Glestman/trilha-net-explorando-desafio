@@ -10,11 +10,11 @@ namespace DesafioProjetoHospedagem.Services.Pessoa
 {
     public interface IPessoaInterface
     {
-        Task<ResponseModel<List<PessoaModel>>> ListarPessoa();
+        Task<ResponseModel<List<PessoaModel>>> ListarPessoas();
         Task<ResponseModel<PessoaModel>> BuscarPessoaPorId(int IdPessoa);
         Task<ResponseModel<PessoaModel>> BuscarPessoaPorIdReserva(int idReserva);
         Task<ResponseModel<List<PessoaModel>>> CriarPessoa(PessoaCriacaoDto pessoaCriacaoDto);
-        Task<ResponseModel<List<PessoaModel>>> EditarPessoa(PessoaCriacaoDto pessoaEdicaoDto);
+        Task<ResponseModel<List<PessoaModel>>> EditarPessoa(PessoaEdicaoDto pessoaEdicaoDto);
         Task<ResponseModel<List<PessoaModel>>> ExcluirPessoa(int IdPessoa);
     }
 }
